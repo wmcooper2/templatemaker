@@ -13,6 +13,7 @@
 """
 
 #stand lib
+from glob import glob
 import os
 from pathlib import Path
 
@@ -74,6 +75,17 @@ def makemain(rootdir):
     """Makes the main script in <root>/src/ dir. Returns None."""
     main = rootdir.strip("./")
     Path(rootdir+"/src/"+main+".py").touch()
+
+def showcreated():
+    """Shows the files and dirs that were created. Returns None."""
+    print("These files and dirs were created...")
+    for path_ in Path(rootdir).iterdir():
+        if path_.is_file():
+            print(path_)
+        else:
+            print(path_)
+            for sub in Path(path_).iterdir():
+                print(sub)
     
 if __name__ == "__main__":
     make_rootdir(rootdir)
@@ -84,3 +96,4 @@ if __name__ == "__main__":
     edit_gitignore(gitignores)
     chmods(shellscripts)
     makemain(rootdir)
+    showcreated()
