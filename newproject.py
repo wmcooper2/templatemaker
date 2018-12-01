@@ -21,9 +21,9 @@ rootdir     = input("Give the project a name: ")
 rootdir     = "./"+str(rootdir)
 subdirs     = ["src", "data", "testdata"]
 files       = ["NOTES.md", "README.md", ".gitignore", "run", "Test"]
-testlines   = ["#!/bin/bash", "python3 -m pytest *_test.py"]
+testlines   = ["#!/bin/bash", "pytest **/*_test.py"]
 gitignores  = [".gitignore", "NOTES.md", "data/", "testdir/"]
-runlines    = ["#!/bin/bash", "python3 "+rootdir.strip("./")+".py"]
+runlines    = ["#!/bin/bash", "python3 src/"+rootdir.strip("./")+".py"]
 shellscripts= ["run", "Test"]
 
 def make_rootdir(rootdir):
