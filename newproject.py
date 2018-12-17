@@ -16,6 +16,7 @@
 from glob import glob
 import os
 from pathlib import Path
+import shutil
 
 rootdir     = input("Give the project a name: ")
 rootdir     = "./"+str(rootdir)
@@ -86,11 +87,16 @@ def showcreated():
             print(path_)
             for sub in Path(path_).iterdir():
                 print(sub)
+
+def copy_license():
+    """Copies MIT license to rootdir. Returns None."""
+    pass
     
 if __name__ == "__main__":
     make_rootdir(rootdir)
     make_subdirs(subdirs)
     make_files(files)
+    copy_license()
     edit_test(testlines)
     edit_run(runlines)
     edit_gitignore(gitignores)
