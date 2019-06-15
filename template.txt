@@ -1,0 +1,8 @@
+NOTES.md
+README.md
+run
+Test
+.gitignore
+src/
+data/
+testdata/
