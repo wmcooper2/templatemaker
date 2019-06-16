@@ -1,0 +1,6 @@
+# Notes
+This is meant to be a staging area for notes that will be moved to the repo's wiki on GitHub.  
+It is for quick notes, or to dump details until it can be figured out later.  
+
+The point is to not spend a lot of time editing this file.  
+This file is gitignored.

@@ -1,0 +1,13 @@
+ *.conf
+ *.ini
+ .DS_Store/
+ .git/
+ .gitignore
+ .mypy_cache/
+ .pytest_cache/
+ .testdata/
+ NOTES.md
+ __pycache__/
+ data/
+ testdata/
+ testdir/
