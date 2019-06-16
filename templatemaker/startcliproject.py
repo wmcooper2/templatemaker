@@ -20,6 +20,7 @@
 from glob import glob
 import os
 from pathlib import Path
+from pprint import pprint
 import shutil
 from typing import List
 from typing import Text
@@ -73,6 +74,8 @@ def make_subdirs(subdirs: List[Text], rtdir: Text) -> None:
 def showcreated(rtdir: Text) -> None:
     """Shows the files and dirs that were created. Returns None."""
     print("These files and dirs were created...")
+#     for root, dir_, file_ in os.walk(rtdir):
+#     pprint(list(os.walk(rtdir)))
     for path_ in Path(rtdir).iterdir():
         if path_.is_file():
             print(path_)
@@ -85,7 +88,7 @@ def showcreated(rtdir: Text) -> None:
     
 if __name__ == "__main__":
     projectname = input("Give the project a name: ")
-    projectdir = "./" + str(projectname)
+    projectdir = "../" + str(projectname)
 
     subdirs = [projectdir, ".data", ".testdata", "docs", "tests"]
     runlines = ["#!/bin/bash", "python3 " + projectname + "/" \
@@ -98,8 +101,7 @@ if __name__ == "__main__":
     make_dir(main)
     make_subdirs(subdirs, projectdir)
 
-    # edit files
-    edit_run(runlines, projectdir)
+    edit_run(runlines, projectdir)  # edit files
 
     # copy from templates
     gitignore = current_path + "/gitignoretemplate.txt"
@@ -116,8 +118,5 @@ if __name__ == "__main__":
     copy_file(testcmd, "Test", projectdir)
     copy_file(tests, projectname+"_test.py", projectdir+"/tests/")
 
-    # change file permissions
-    chmods(shellscripts, projectdir)
-
-    # update user
-    showcreated(projectdir)
+    chmods(shellscripts, projectdir)  # change file permissions
+    showcreated(projectdir)  # update user
